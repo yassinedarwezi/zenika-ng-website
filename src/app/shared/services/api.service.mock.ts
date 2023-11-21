@@ -1,32 +1,20 @@
 import { of } from 'rxjs';
 import { BasketItem } from '../../basket/basket.types';
-import { Product } from '../../product/product.types';
+import { Product } from '../../catalog/product/product.types';
 import { ApiService } from './api.service';
 
 export const MockApiService: Partial<ApiService> = {
-  getProducts: jasmine.createSpy('getProducts').and.returnValue(
-    of([
-      {
-        id: 'id',
-        title: 'title',
-        description: 'description',
-        photo: 'photo',
-        price: 10,
-        stock: 2,
-      },
-    ] as Product[]),
-  ),
+  getProducts: jasmine
+    .createSpy('getProducts')
+    .and.returnValue(
+      of([{ id: 'id', title: 'title', description: 'description', photo: 'photo', price: 10, stock: 2 }] as Product[]),
+    ),
 
-  getProduct: jasmine.createSpy('getProduct').and.returnValue(
-    of({
-      id: 'id',
-      title: 'title',
-      description: 'description',
-      photo: 'photo',
-      price: 10,
-      stock: 2,
-    } as Product),
-  ),
+  getProduct: jasmine
+    .createSpy('getProduct')
+    .and.returnValue(
+      of({ id: 'id', title: 'title', description: 'description', photo: 'photo', price: 10, stock: 2 } as Product),
+    ),
 
   getBasket: jasmine.createSpy('getBasket').and.returnValue(of([] as BasketItem[])),
 
