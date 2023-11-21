@@ -26,7 +26,9 @@ export class ApiService {
   }
 
   addToBasket(productId: string): Observable<BasketItem> {
-    return this.httpClient.post<BasketItem>(`${this.basePath}/api/basket`, { productId });
+    return this.httpClient.post<BasketItem>(`${this.basePath}/api/basket`, {
+      productId,
+    });
   }
 
   checkoutBasket(customer: Customer) {
